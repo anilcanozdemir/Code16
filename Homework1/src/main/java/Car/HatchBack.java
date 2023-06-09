@@ -3,6 +3,10 @@ package Car;
 import java.math.BigDecimal;
 
 public class HatchBack extends Car {
+    public HatchBack(String colour, int luggageCapacity, int year, BigDecimal dailyPayment) {
+        super(colour, luggageCapacity, year,dailyPayment);
+    }
+
     @Override
     public BigDecimal CostByDaily(int dayCount) {
         return getDailyPayment().multiply(new BigDecimal(dayCount));
@@ -16,9 +20,6 @@ public class HatchBack extends Car {
 
     }
 
-    public HatchBack(String colour, int luggageCapacity, int year, BigDecimal dailyPayment) {
-        super(colour, luggageCapacity, year,dailyPayment);
-    }
 
     @Override
     public String toString() {

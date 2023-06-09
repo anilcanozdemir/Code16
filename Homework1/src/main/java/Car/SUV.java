@@ -1,8 +1,12 @@
 package Car;
 
 import java.math.BigDecimal;
+import java.time.Year;
 
 public class SUV extends Car {
+    public SUV(String colour, int luggageCapacity, int year, BigDecimal dailyPayment) {
+        super(colour, luggageCapacity, year,dailyPayment);
+    }
     @Override
     public BigDecimal CostByDaily(int dayCount) {
         return getDailyPayment().multiply(new BigDecimal(dayCount));
@@ -10,7 +14,7 @@ public class SUV extends Car {
 
     @Override
     public BigDecimal CostByMonthly(int dayCount) {
-        int age=2023-getYear();
+        int age= Year.now().getValue()-getYear();
         System.out.println("SUVLARDA AYLIK KİRALAR YAŞINA GÖRE İNDİRİMLİ!");
         if(age >5 && age<=15)
         {
@@ -28,9 +32,7 @@ public class SUV extends Car {
             return getDailyPayment().multiply(new BigDecimal(dayCount*30));
     }
 
-    public SUV(String colour, int luggageCapacity, int year, BigDecimal dailyPayment) {
-        super(colour, luggageCapacity, year,dailyPayment);
-    }
+
     @Override
     public String toString() {
         return "SUV"+"\t"+this.getYear()+"\t"+this.getLuggageCapacity()+"\t"+this.getColour()+"\t"+getDailyPayment();

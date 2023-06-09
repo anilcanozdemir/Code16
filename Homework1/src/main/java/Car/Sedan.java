@@ -3,6 +3,9 @@ package Car;
 import java.math.BigDecimal;
 
 public class Sedan extends Car {
+    public Sedan(String colour, int luggageCapacity, int year, BigDecimal dailyPayment) {
+        super(colour, luggageCapacity, year,dailyPayment);;
+    }
     @Override
     public BigDecimal CostByDaily(int dayCount) {
         return getDailyPayment().multiply(new BigDecimal(dayCount));
@@ -14,9 +17,7 @@ public class Sedan extends Car {
         return getDailyPayment().multiply(new BigDecimal(dayCount*30)).multiply(new BigDecimal("0.85"));
     }
 
-    public Sedan(String colour, int luggageCapacity, int year, BigDecimal dailyPayment) {
-        super(colour, luggageCapacity, year,dailyPayment);;
-    }
+
 
     @Override
     public String toString() {

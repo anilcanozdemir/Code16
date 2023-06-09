@@ -7,6 +7,12 @@ public abstract class Car {
     private int luggageCapacity;
     private int year;
     private BigDecimal dailyPayment;
+    public Car(String colour, int luggageCapacity, int year,BigDecimal dailyPayment) {
+        this.colour = colour;
+        this.luggageCapacity = luggageCapacity;
+        this.year = year;
+        this.dailyPayment=dailyPayment;
+    }
     public abstract BigDecimal CostByDaily(int dayCount);
     public abstract BigDecimal CostByMonthly(int dayCount);
     public String getColour() {
@@ -43,12 +49,7 @@ public abstract class Car {
 
 
 
-    public Car(String colour, int luggageCapacity, int year,BigDecimal dailyPayment) {
-        this.colour = colour;
-        this.luggageCapacity = luggageCapacity;
-        this.year = year;
-        this.dailyPayment=dailyPayment;
-    }
+
 
     @Override
     public abstract String toString();
