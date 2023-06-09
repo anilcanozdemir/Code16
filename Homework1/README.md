@@ -1,3 +1,4 @@
+# ANIL CAN ÖZDEMİR
 
     /**
      * Senaryo;
@@ -21,3 +22,12 @@
      * NOT: bu örnekleri yapmak şart değil. kendi sisteminizi kurabilirsiniz.
      *
      */
+- [x] Assignment-1 🟢:
+    - 1. Homework
+        - Basit Araç kiralama senaryoları ve kira ücretlerinin hesaplanması. ✅
+## KULLANILAN YAPILAR
+    Öğrenilen abstract ve inheritance yapıları,encapsulation,override,instance of yapıları ve
+    ücret hesaplamaları için BigInteger yapıları kullanılmıştır.
+    BigInteger Yapısının kullanılmasının sebebi double primitive yapılarına nazaran daha doğru sonuçlar üretilmesi.
+    Ancak performans düşüklüğü yaratmaktadır.
+    
