@@ -49,7 +49,38 @@ public class User implements UserService {
 
     @Override
     public String ListAvailableSeats(int flightId) {
+        Optional<Flight> flight = this.flightRepository.findById(flightId);
+        if (flight.isPresent()) {
+            Flight unpacked = flight.get();
+            StringBuilder stringBuilder=new StringBuilder();
+            stringBuilder.append(unpacked.getId()).append("ID li uçuş\n").append("EKONOMİ\t\n");
 
+            for(int i=0;i<unpacked.getCapacity()-unpacked.getBusinessSeatCount();i++)
+            {
+
+                if(isAvailable(unpacked,i))
+                    stringBuilder.append((char) (i / 10 + 65)).append(String.valueOf(i % 10)).append("\t");
+                else
+                    stringBuilder.append("XX"+"\t");
+                if(i%10==9)
+                    stringBuilder.append("\n");
+
+            }
+            stringBuilder.append("\nBUSINESS :\n");
+            for(int i=unpacked.getCapacity()-unpacked.getBusinessSeatCount();i<=unpacked.getCapacity();i++)
+            {
+
+                if(isAvailable(unpacked,i))
+                    stringBuilder.append((char) (i / 10 + 65)).append(String.valueOf(i % 10)).append("\t");
+                else
+                    stringBuilder.append("XX"+"\t");
+                if(i%10==9)
+                    stringBuilder.append("\n");
+
+            }
+            return stringBuilder.toString();
+        }
+        return null;
     }
 
     private boolean isBusiness(Flight flight, int seat) {
